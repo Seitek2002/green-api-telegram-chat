@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { GreenApi } from '../api/greenApi'
+import type { useInstanceSettings } from '../hooks/useInstanceSettings'
 import type { PollingState } from '../hooks/useNotificationPolling'
 import { formatChatTime } from '../lib/format'
 import { formatPhone } from '../lib/phone'
@@ -8,6 +9,7 @@ import { sortChats, useChatStore } from '../store/chatStore'
 import { Avatar } from './Avatar'
 import { ChatBubbleIcon, LogoutIcon, PlusIcon } from './icons'
 import { NewChatForm } from './NewChatForm'
+import { SettingsBanner } from './SettingsBanner'
 import styles from './Sidebar.module.css'
 
 const CONNECTION_LABELS: Record<PollingState['status'], string> = {
@@ -19,9 +21,10 @@ const CONNECTION_LABELS: Record<PollingState['status'], string> = {
 interface SidebarProps {
   api: GreenApi
   connection: PollingState
+  settings: ReturnType<typeof useInstanceSettings>
 }
 
-export function Sidebar({ api, connection }: SidebarProps) {
+export function Sidebar({ api, connection, settings }: SidebarProps) {
   const chats = useChatStore((state) => state.chats)
   const messages = useChatStore((state) => state.messages)
   const activeChatId = useChatStore((state) => state.activeChatId)
@@ -65,6 +68,8 @@ export function Sidebar({ api, connection }: SidebarProps) {
           {connection.error}
         </p>
       )}
+
+      <SettingsBanner state={settings.state} onFix={settings.fix} onDismiss={settings.dismiss} />
 
       {isCreating && <NewChatForm api={api} onClose={() => setIsCreating(false)} />}
 

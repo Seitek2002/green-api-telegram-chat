@@ -3,6 +3,7 @@ import type {
   Credentials,
   DeleteNotificationResponse,
   GetStateInstanceResponse,
+  InstanceSettings,
   ReceivedNotification,
   SendMessageRequest,
   SendMessageResponse,
@@ -91,6 +92,11 @@ export function createGreenApi(credentials: Credentials) {
   return {
     getStateInstance: (signal?: AbortSignal) =>
       request<GetStateInstanceResponse>('getStateInstance', { signal }),
+
+    getSettings: (signal?: AbortSignal) => request<InstanceSettings>('getSettings', { signal }),
+
+    setSettings: (settings: InstanceSettings) =>
+      request<{ saveSettings: boolean }>('setSettings', { method: 'POST', body: settings }),
 
     /** Поиск аккаунта Telegram по номеру телефона или username */
     checkAccount: (target: { phoneNumber: string } | { username: string }) =>

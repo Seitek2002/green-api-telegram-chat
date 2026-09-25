@@ -19,6 +19,15 @@ export interface GetStateInstanceResponse {
   stateInstance: InstanceState
 }
 
+/** Настройки инстанса, влияющие на получение уведомлений */
+export interface InstanceSettings {
+  webhookUrl?: string
+  incomingWebhook?: 'yes' | 'no'
+  outgoingWebhook?: 'yes' | 'no'
+  outgoingMessageWebhook?: 'yes' | 'no'
+  outgoingAPIMessageWebhook?: 'yes' | 'no'
+}
+
 export interface CheckAccountResponse {
   exist: boolean
   /** chatId пользователя Telegram, найденного по номеру или username */
