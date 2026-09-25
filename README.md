@@ -4,6 +4,8 @@
 
 Тестовое задание на должность «Фронтенд-разработчик React».
 
+**Демо:** https://seitek2002.github.io/green-api-max-chat/
+
 <p>
   <img src="docs/screenshots/chat.png" alt="Окно чата" width="72%">
   <img src="docs/screenshots/mobile.png" alt="Мобильная версия" width="24%">
@@ -25,7 +27,7 @@
 Требуется Node.js 20+.
 
 ```bash
-git clone <ссылка на репозиторий>
+git clone https://github.com/Seitek2002/green-api-max-chat.git
 cd green-api-max-chat
 npm install
 npm run dev
