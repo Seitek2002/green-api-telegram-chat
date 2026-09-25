@@ -1,6 +1,6 @@
 import type { SettingsState } from '../hooks/useInstanceSettings'
 import { CloseIcon } from './icons'
-import styles from './SettingsBanner.module.css'
+import styles from './Banner.module.css'
 
 interface SettingsBannerProps {
   state: SettingsState

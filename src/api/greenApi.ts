@@ -98,6 +98,15 @@ export function createGreenApi(credentials: Credentials) {
     setSettings: (settings: InstanceSettings) =>
       request<{ saveSettings: boolean }>('setSettings', { method: 'POST', body: settings }),
 
+    /** Количество уведомлений во входящей очереди */
+    getWebhooksCount: (signal?: AbortSignal) => request<{ count: number }>('getWebhooksCount', { signal }),
+
+    /** Очистка входящей очереди (старые уведомления удаляются без обработки) */
+    clearWebhooksQueue: () =>
+      request<{ isCleared: boolean; reason?: string; leftTime?: number }>('clearWebhooksQueue', {
+        method: 'DELETE',
+      }),
+
     /** Поиск аккаунта Telegram по номеру телефона или username */
     checkAccount: (target: { phoneNumber: string } | { username: string }) =>
       request<CheckAccountResponse>('checkAccount', {

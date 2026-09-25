@@ -58,6 +58,14 @@ describe('createGreenApi', () => {
     expect(fetchMock.mock.calls[0][1].body).toBe('{"username":"@durov"}')
   })
 
+  it('clearWebhooksQueue очищает входящую очередь методом DELETE', async () => {
+    const fetchMock = mockFetch(200, '{"isCleared":true,"reason":""}')
+    await expect(createGreenApi(credentials).clearWebhooksQueue()).resolves.toMatchObject({ isCleared: true })
+    const [url, init] = fetchMock.mock.calls[0]
+    expect(String(url)).toMatch(/\/clearWebhooksQueue\/token$/)
+    expect(init.method).toBe('DELETE')
+  })
+
   it('превращает 401 в понятную ошибку', async () => {
     mockFetch(401, '')
     const error = await createGreenApi(credentials).getStateInstance().catch((e: unknown) => e)

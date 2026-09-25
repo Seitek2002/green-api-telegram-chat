@@ -2,11 +2,13 @@ import { useMemo, useState } from 'react'
 import type { GreenApi } from '../api/greenApi'
 import type { useInstanceSettings } from '../hooks/useInstanceSettings'
 import type { PollingState } from '../hooks/useNotificationPolling'
+import type { useQueueBacklog } from '../hooks/useQueueBacklog'
 import { formatChatTime } from '../lib/format'
 import { formatPhone } from '../lib/phone'
 import { useAuthStore } from '../store/authStore'
 import { sortChats, useChatStore } from '../store/chatStore'
 import { Avatar } from './Avatar'
+import { BacklogBanner } from './BacklogBanner'
 import { ChatBubbleIcon, LogoutIcon, PlusIcon } from './icons'
 import { NewChatForm } from './NewChatForm'
 import { SettingsBanner } from './SettingsBanner'
@@ -22,9 +24,10 @@ interface SidebarProps {
   api: GreenApi
   connection: PollingState
   settings: ReturnType<typeof useInstanceSettings>
+  backlog: ReturnType<typeof useQueueBacklog>
 }
 
-export function Sidebar({ api, connection, settings }: SidebarProps) {
+export function Sidebar({ api, connection, settings, backlog }: SidebarProps) {
   const chats = useChatStore((state) => state.chats)
   const messages = useChatStore((state) => state.messages)
   const activeChatId = useChatStore((state) => state.activeChatId)
@@ -70,6 +73,7 @@ export function Sidebar({ api, connection, settings }: SidebarProps) {
       )}
 
       <SettingsBanner state={settings.state} onFix={settings.fix} onDismiss={settings.dismiss} />
+      <BacklogBanner state={backlog.state} onClear={backlog.clear} onDismiss={backlog.dismiss} />
 
       {isCreating && <NewChatForm api={api} onClose={() => setIsCreating(false)} />}
 

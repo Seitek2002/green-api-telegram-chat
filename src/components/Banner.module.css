@@ -70,3 +70,7 @@
   opacity: 1;
   background: #ffffff14;
 }
+
+.description {
+  margin: 4px 0 10px !important;
+}
