@@ -26,7 +26,7 @@
   max-width: 280px;
   padding: 16px 20px;
   border-radius: 16px;
-  background: #2a305de0;
+  background: var(--pill-bg);
   color: var(--text-secondary);
   text-align: center;
 }

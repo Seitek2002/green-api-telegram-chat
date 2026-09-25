@@ -15,6 +15,6 @@ export const useAuthStore = create<AuthState>()(
       login: (credentials) => set({ credentials }),
       logout: () => set({ credentials: null }),
     }),
-    { name: 'max-chat:auth' },
+    { name: 'tg-chat:auth' },
   ),
 )

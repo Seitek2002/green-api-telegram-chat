@@ -21,8 +21,10 @@ export interface GetStateInstanceResponse {
 
 export interface CheckAccountResponse {
   exist: boolean
-  /** chatId пользователя MAX, привязанного к номеру телефона */
+  /** chatId пользователя Telegram, найденного по номеру или username */
   chatId?: string
+  username?: string
+  phoneNumber?: number
   fromCache?: boolean
 }
 

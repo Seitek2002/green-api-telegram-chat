@@ -89,20 +89,16 @@ export const ChatBubbleIcon = (props: IconProps) => (
   </svg>
 )
 
-/** Логотип-плейсхолдер в стиле MAX (не товарный знак). */
+/** Логотип приложения: бумажный самолётик в круге. */
 export const LogoMark = (props: IconProps) => (
-  <svg width="56" height="56" viewBox="0 0 64 64" aria-hidden {...props}>
+  <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden {...props}>
     <defs>
       <linearGradient id="logo-gradient" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stopColor="#23b0d6" />
-        <stop offset="0.55" stopColor="#016fe7" />
-        <stop offset="1" stopColor="#7a3cf0" />
+        <stop offset="0" stopColor="#a695e7" />
+        <stop offset="1" stopColor="#6a57d5" />
       </linearGradient>
     </defs>
-    <path
-      d="M32 6C17.6 6 6 17.1 6 30.8c0 6.4 2.5 12.2 6.7 16.6L10 58l11.6-5.2A27 27 0 0 0 32 55.6c14.4 0 26-11.1 26-24.8S46.4 6 32 6Z"
-      fill="url(#logo-gradient)"
-    />
-    <circle cx="32" cy="30.8" r="9.5" fill="none" stroke="#fff" strokeWidth="5" />
+    <circle cx="32" cy="32" r="30" fill="url(#logo-gradient)" />
+    <path d="M15.5 31.2 45 19.8c1.4-.5 2.6.3 2.2 2.3l-5 23.7c-.4 1.7-1.4 2.1-2.8 1.3l-7.7-5.7-3.7 3.6c-.4.4-.8.8-1.6.8l.5-7.9 14.4-13c.6-.6-.1-.9-1-.3L22.5 35.8l-7.6-2.4c-1.7-.5-1.7-1.6.6-2.2Z" fill="#fff" />
   </svg>
 )

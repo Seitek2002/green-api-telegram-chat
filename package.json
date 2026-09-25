@@ -1,5 +1,5 @@
 {
-  "name": "green-api-max-chat",
+  "name": "green-api-telegram-chat",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -31,5 +31,5 @@
     "vite": "^8.3.0",
     "vitest": "^5.0.2"
   },
-  "description": "Веб-чат для MAX через GREEN-API (тестовое задание)"
+  "description": "Веб-чат для Telegram через GREEN-API (тестовое задание)"
 }

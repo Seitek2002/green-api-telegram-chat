@@ -8,7 +8,7 @@ import styles from './LoginScreen.module.css'
 const STATE_HINTS: Record<string, string> = {
   notAuthorized: 'Инстанс не авторизован. Отсканируйте QR-код в личном кабинете GREEN-API',
   blocked: 'Инстанс заблокирован',
-  sleepMode: 'Инстанс в спящем режиме. Откройте MAX на телефоне',
+  sleepMode: 'Инстанс в спящем режиме. Откройте Telegram на телефоне',
   starting: 'Инстанс запускается, попробуйте через минуту',
   yellowCard: 'Отправка сообщений временно ограничена',
 }
@@ -57,7 +57,7 @@ export function LoginScreen() {
     <main className={`${styles.screen} doodle-bg`}>
       <form className={styles.card} onSubmit={handleSubmit} noValidate>
         <LogoMark className={styles.logo} />
-        <h1 className={styles.title}>Вход в MAX Chat</h1>
+        <h1 className={styles.title}>Вход в Telegram Chat</h1>
         <p className={styles.subtitle}>
           Введите параметры инстанса из{' '}
           <a href="https://console.green-api.com" target="_blank" rel="noreferrer">
@@ -71,7 +71,7 @@ export function LoginScreen() {
             className={styles.input}
             value={idInstance}
             onChange={(e) => setIdInstance(e.target.value.replace(/\D/g, ''))}
-            placeholder="3100123456"
+            placeholder="4100123456"
             inputMode="numeric"
             autoComplete="username"
             autoFocus
@@ -111,7 +111,7 @@ export function LoginScreen() {
               className={styles.input}
               value={apiUrl}
               onChange={(e) => setCustomApiUrl(e.target.value)}
-              placeholder="https://3100.api.green-api.com"
+              placeholder="https://4100.api.green-api.com"
               inputMode="url"
               spellCheck={false}
             />

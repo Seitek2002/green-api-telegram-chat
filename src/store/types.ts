@@ -15,7 +15,7 @@ export interface Message {
 }
 
 export interface Chat {
-  /** chatId в GREEN-API (MAX id пользователя или телефон@c.us) */
+  /** chatId в GREEN-API (id пользователя Telegram или телефон@c.us) */
   id: string
   name: string
   /** Номер телефона в формате цифр, если чат создан по номеру */

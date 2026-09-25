@@ -21,3 +21,14 @@ export function formatPhone(digits: string): string {
 export function phoneToChatId(digits: string): string {
   return `${digits}@c.us`
 }
+
+export type Recipient = { type: 'phone'; phone: string } | { type: 'username'; username: string }
+
+/** Распознаёт получателя: номер телефона или Telegram username (@name). */
+export function parseRecipient(input: string): Recipient | null {
+  const value = input.trim()
+  const username = /^@?([a-zA-Z][a-zA-Z0-9_]{4,31})$/.exec(value)
+  if (username) return { type: 'username', username: `@${username[1]}` }
+  const phone = normalizePhone(value)
+  return phone ? { type: 'phone', phone } : null
+}

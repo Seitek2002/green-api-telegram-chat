@@ -48,8 +48,14 @@ describe('createGreenApi', () => {
 
   it('checkAccount передаёт номер числом', async () => {
     const fetchMock = mockFetch(200, '{"exist":true,"chatId":"10000000"}')
-    await createGreenApi(credentials).checkAccount('79991234567')
+    await createGreenApi(credentials).checkAccount({ phoneNumber: '79991234567' })
     expect(fetchMock.mock.calls[0][1].body).toBe('{"phoneNumber":79991234567}')
+  })
+
+  it('checkAccount умеет искать по username', async () => {
+    const fetchMock = mockFetch(200, '{"exist":true,"chatId":"10000000"}')
+    await createGreenApi(credentials).checkAccount({ username: '@durov' })
+    expect(fetchMock.mock.calls[0][1].body).toBe('{"username":"@durov"}')
   })
 
   it('превращает 401 в понятную ошибку', async () => {

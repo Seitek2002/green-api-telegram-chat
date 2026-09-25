@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import type { NotificationBody } from '../api/types'
 import { parseNotification, UNSUPPORTED_MESSAGE_TEXT } from './notifications'
 
-// Пример из документации GREEN-API MAX
+// Пример из документации GREEN-API Telegram
 const incomingText: NotificationBody = {
   typeWebhook: 'incomingMessageReceived',
   timestamp: 1763115112,

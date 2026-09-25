@@ -70,7 +70,7 @@ describe('chatStore', () => {
     expect(store().messages['10000000']).toHaveLength(1)
   })
 
-  it('переносит чат, созданный по телефону, на chatId из MAX', () => {
+  it('переносит чат, созданный по телефону, на chatId из Telegram', () => {
     store().openChat({ id: '79991234567@c.us', phone: '79991234567' })
     store().addPendingMessage('79991234567@c.us', 'Привет')
     store().receiveMessage(incoming())
@@ -100,7 +100,7 @@ describe('chatStore', () => {
 describe('chatStore: имя чата', () => {
   beforeEach(() => store().reset())
 
-  it('заменяет номер на имя из MAX при первом ответе', () => {
+  it('заменяет номер на имя из Telegram при первом ответе', () => {
     store().openChat({ id: '10000000', phone: '79991234567' })
     store().receiveMessage(incoming())
     expect(store().chats['10000000'].name).toBe('Иван')

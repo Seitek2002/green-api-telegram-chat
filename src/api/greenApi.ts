@@ -92,10 +92,11 @@ export function createGreenApi(credentials: Credentials) {
     getStateInstance: (signal?: AbortSignal) =>
       request<GetStateInstanceResponse>('getStateInstance', { signal }),
 
-    checkAccount: (phoneNumber: string) =>
+    /** Поиск аккаунта Telegram по номеру телефона или username */
+    checkAccount: (target: { phoneNumber: string } | { username: string }) =>
       request<CheckAccountResponse>('checkAccount', {
         method: 'POST',
-        body: { phoneNumber: Number(phoneNumber) },
+        body: 'phoneNumber' in target ? { phoneNumber: Number(target.phoneNumber) } : target,
       }),
 
     sendMessage: (payload: SendMessageRequest) =>

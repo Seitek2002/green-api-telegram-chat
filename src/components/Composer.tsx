@@ -3,7 +3,7 @@ import { SendIcon } from './icons'
 import styles from './Composer.module.css'
 
 /** Ограничение метода SendMessage */
-export const MAX_MESSAGE_LENGTH = 4000
+export const MAX_MESSAGE_LENGTH = 4096
 const MAX_TEXTAREA_HEIGHT = 200
 
 interface ComposerProps {

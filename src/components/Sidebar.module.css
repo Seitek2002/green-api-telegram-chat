@@ -74,7 +74,7 @@
   margin: 0 12px 12px;
   padding: 8px 12px;
   border-radius: 12px;
-  background: #ce425724;
+  background: #ff595a24;
   color: var(--text-negative);
   font-size: 13px;
   line-height: 18px;
@@ -105,6 +105,16 @@
 
 .item[data-active='true'] {
   background: var(--bg-active);
+}
+
+.item[data-active='true'] .itemTime,
+.item[data-active='true'] .itemPreview {
+  color: #ffffffd9;
+}
+
+.item[data-active='true'] .badge {
+  background: #fff;
+  color: var(--accent);
 }
 
 .itemBody {

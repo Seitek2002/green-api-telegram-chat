@@ -1,12 +1,14 @@
 import styles from './Avatar.module.css'
 
-// Градиенты аватаров в духе палитры MAX
+// Градиенты аватаров как в Telegram Web
 const GRADIENTS = [
-  ['#5ec7ce', '#1f8a9a'],
-  ['#78b1f5', '#2d62c9'],
-  ['#a79dff', '#5b47d6'],
-  ['#f78fb7', '#c43f7a'],
-  ['#f2ab7d', '#d0632b'],
+  ['#ff885e', '#ff516a'],
+  ['#ffcd6a', '#ffa85c'],
+  ['#82b1ff', '#665fff'],
+  ['#a0de7e', '#54cb68'],
+  ['#53edd6', '#28c9b7'],
+  ['#72d5fd', '#2a9ef1'],
+  ['#e0a2f3', '#d669ed'],
 ]
 
 function hash(value: string): number {

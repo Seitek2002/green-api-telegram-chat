@@ -33,7 +33,11 @@ function upsertChat(chats: Record<string, Chat>, chat: Chat): Record<string, Cha
 }
 
 function isPlaceholderName(chat: Chat): boolean {
-  return chat.name === chat.id || (chat.phone !== undefined && chat.name === formatPhone(chat.phone))
+  return (
+    chat.name === chat.id ||
+    chat.name.startsWith('@') ||
+    (chat.phone !== undefined && chat.name === formatPhone(chat.phone))
+  )
 }
 
 function sortByTime(list: Message[]): Message[] {
@@ -41,7 +45,7 @@ function sortByTime(list: Message[]): Message[] {
 }
 
 /**
- * Находит чат для входящего сообщения. В MAX ответ приходит с числовым chatId,
+ * Находит чат для входящего сообщения. В Telegram ответ приходит с числовым chatId,
  * а чат мог быть создан по номеру телефона (phone@c.us), поэтому
  * дополнительно сверяемся с номером отправителя.
  */
@@ -141,7 +145,7 @@ export const useChatStore = create<ChatState>()(
           let messages = state.messages
           let activeChatId = state.activeChatId
 
-          // Чат создан по телефону, а MAX прислал настоящий chatId — переносим историю
+          // Чат создан по телефону, а Telegram прислал настоящий chatId — переносим историю
           if (knownChatId && knownChatId !== incoming.chatId) {
             const { [knownChatId]: oldChat, ...restChats } = chats
             const { [knownChatId]: oldMessages = [], ...restMessages } = messages
@@ -163,7 +167,7 @@ export const useChatStore = create<ChatState>()(
           const chat: Chat = current
             ? {
                 ...current,
-                // Чат назван по номеру — заменяем на имя из профиля MAX, когда оно стало известно
+                // Чат назван по номеру — заменяем на имя из профиля Telegram, когда оно стало известно
                 name:
                   incoming.direction === 'in' && incoming.chatName && isPlaceholderName(current)
                     ? incoming.chatName
@@ -215,7 +219,7 @@ export const useChatStore = create<ChatState>()(
       reset: () => set({ ...initialState, instanceId: null }),
     }),
     {
-      name: 'max-chat:chats',
+      name: 'tg-chat:chats',
       // Сообщения, отправка которых не завершилась до перезагрузки, помечаем как неотправленные
       partialize: ({ chats, messages, instanceId }) => ({
         instanceId,

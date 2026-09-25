@@ -32,7 +32,6 @@
 
 .row[data-direction='out'] .bubble {
   background: var(--bubble-out);
-  background-attachment: fixed;
 }
 
 .row[data-direction='in'][data-tail='true'] .bubble {
@@ -48,7 +47,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Время «обтекается» текстом, как в MAX и других мессенджерах */
+/* Время «обтекается» текстом, как в Telegram */
 .meta {
   float: right;
   display: inline-flex;
