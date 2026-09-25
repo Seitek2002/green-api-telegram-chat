@@ -1,0 +1,94 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: appear 0.16s ease-out;
+}
+
+.row[data-direction='out'] {
+  align-items: flex-end;
+}
+
+.row[data-tail='true'] {
+  margin-bottom: 6px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.bubble {
+  position: relative;
+  max-width: min(480px, 78%);
+  padding: 7px 12px 7px;
+  border-radius: var(--radius-bubble);
+  background: var(--bubble-in);
+  color: var(--text-primary);
+  box-shadow: 0 1px 2px #0003;
+}
+
+.row[data-direction='out'] .bubble {
+  background: var(--bubble-out);
+  background-attachment: fixed;
+}
+
+.row[data-direction='in'][data-tail='true'] .bubble {
+  border-bottom-left-radius: 6px;
+}
+
+.row[data-direction='out'][data-tail='true'] .bubble {
+  border-bottom-right-radius: 6px;
+}
+
+.text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Время «обтекается» текстом, как в MAX и других мессенджерах */
+.meta {
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin: 6px 0 -4px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-tertiary);
+  user-select: none;
+}
+
+.row[data-direction='out'] .meta {
+  color: #ffffffc0;
+}
+
+.status {
+  display: inline-flex;
+}
+
+.status[data-status='read'] {
+  color: #fff;
+}
+
+.status[data-status='failed'] {
+  color: #ffb3bd;
+}
+
+.failed {
+  margin: 4px 4px 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-negative);
+}
+
+.retry {
+  color: var(--text-themed);
+  font-weight: 600;
+}
+
+.retry:hover {
+  text-decoration: underline;
+}

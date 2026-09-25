@@ -1,0 +1,87 @@
+/* Палитра взята из тёмной темы web.max.ru */
+:root {
+  --bg-surface: #0f0f12;
+  --bg-primary: #17181c;
+  --bg-secondary: #25262d;
+  --bg-tertiary: #ffffff17;
+  --bg-hover: #ffffff0f;
+  --bg-active: #016fe729;
+  --chat-bg: #18151d;
+  --pattern-color: #016fe74d;
+
+  --text-primary: #fff;
+  --text-secondary: #fffc;
+  --text-tertiary: #ffffffa3;
+  --text-mute: #fff6;
+  --text-themed: #3d8bff;
+  --text-negative: #ff6b7f;
+  --text-positive: #2bc644;
+
+  --accent: #016fe7;
+  --accent-hover: #1a7ff0;
+  --divider: #ffffff1f;
+  --input-bg: #ffffff17;
+
+  --bubble-in: #2c3368;
+  --bubble-out: linear-gradient(135deg, #23b0d6 0%, #016fe7 55%, #2672b2 100%);
+
+  --radius-card: 24px;
+  --radius-bubble: 18px;
+  --sidebar-width: 380px;
+
+  color-scheme: dark;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Фоновый «космический» паттерн, как в MAX */
+.doodle-bg {
+  background-color: var(--chat-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240' fill='none' stroke='%23016fe7' stroke-opacity='0.2' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='40' cy='42' r='14'/%3E%3Cellipse cx='40' cy='42' rx='26' ry='7' transform='rotate(-20 40 42)'/%3E%3Cpath d='M150 24l3 8 8 3-8 3-3 8-3-8-8-3 8-3z'/%3E%3Cpath d='M204 70a14 14 0 1 0 10 24 11 11 0 1 1-10-24z'/%3E%3Cpath d='M96 118c8-14 22-22 30-20-2 8-10 22-24 30zM100 124l-8 8M108 128l-4 10M94 116l-10 4'/%3E%3Ccircle cx='118' cy='106' r='3'/%3E%3Ccircle cx='24' cy='150' r='2'/%3E%3Ccircle cx='190' cy='150' r='2'/%3E%3Ccircle cx='70' cy='200' r='9'/%3E%3Cpath d='M64 196h12M66 204h8'/%3E%3Cpath d='M170 196l2 5 5 2-5 2-2 5-2-5-5-2 5-2z'/%3E%3Cpath d='M216 208c-6 0-10-4-10-10M226 212c-12 2-24-8-24-20'/%3E%3Cpath d='M20 98h10M25 93v10'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}

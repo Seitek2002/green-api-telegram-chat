@@ -1,0 +1,86 @@
+.composer {
+  padding: 8px 20px 16px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.inner {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 791px;
+  margin: 0 auto;
+}
+
+.field {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 24px;
+  background: #25262df2;
+  border: 1px solid var(--divider);
+  box-shadow: 0 4px 16px #0005;
+  transition: border-color 0.15s;
+}
+
+.field:focus-within {
+  border-color: #016fe780;
+}
+
+.textarea {
+  flex: 1;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 13px 0;
+  line-height: 20px;
+  max-height: 200px;
+}
+
+.textarea::placeholder {
+  color: var(--text-mute);
+}
+
+.counter {
+  align-self: flex-end;
+  padding: 0 0 14px 8px;
+  font-size: 12px;
+  color: var(--text-mute);
+}
+
+.counter[data-error='true'] {
+  color: var(--text-negative);
+}
+
+.send {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  transition: background 0.15s, transform 0.15s, opacity 0.15s;
+}
+
+.send:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.send:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.send:disabled {
+  background: var(--bg-secondary);
+  color: var(--text-mute);
+}
+
+@media (max-width: 768px) {
+  .composer {
+    padding: 8px 12px 12px;
+  }
+}

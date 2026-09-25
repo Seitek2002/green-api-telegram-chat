@@ -1,0 +1,68 @@
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 791px;
+  min-height: 100%;
+  justify-content: flex-end;
+  margin: 0 auto;
+  padding: 16px 20px;
+  list-style: none;
+}
+
+.date {
+  align-self: center;
+  margin: 12px 0 8px;
+}
+
+.date span {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: #2a305de0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.emptyCard {
+  padding: 12px 20px;
+  border-radius: 16px;
+  background: #2a305de0;
+}
+
+.empty p {
+  margin: 0;
+}
+
+.emptyTitle {
+  font-weight: 600;
+}
+
+.emptyText {
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .list {
+    padding: 12px;
+  }
+}
